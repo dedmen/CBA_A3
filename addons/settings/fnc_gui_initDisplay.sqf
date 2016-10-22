@@ -16,7 +16,6 @@ _ctrlAddonList ctrlAddEventHandler ["LBSelChanged", FUNC(gui_addonChanged)];
 private _categories = [];
 
 // ----- create settings lists
-
 #include "gui_createMenu.sqf"
 
 // ----- fill addons list
@@ -110,7 +109,7 @@ uiNamespace setVariable [QGVAR(ctrlButtonExport), _ctrlButtonExport];
     _x ctrlEnable false;
     _x ctrlShow false;
     _x ctrlAddEventHandler ["ButtonClick", FUNC(gui_sourceChanged)];
-} forEach [_display displayCtrl IDC_BTN_CLIENT, _display displayCtrl IDC_BTN_SERVER, _display displayCtrl IDC_BTN_MISSION];
+} forEach [_display displayCtrl IDC_BTN_SERVER, _display displayCtrl IDC_BTN_CLIENT, _display displayCtrl IDC_BTN_MISSION];
 
 GVAR(clientSettingsTemp) = [] call CBA_fnc_createNamespace;
 GVAR(serverSettingsTemp) = [] call CBA_fnc_createNamespace;
