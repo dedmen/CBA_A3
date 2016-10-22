@@ -75,7 +75,7 @@ if !(ctrlShown _ctrlAddonsGroup) then {
     ([
         _ctrlServerButton, _ctrlClientButton, _ctrlMissionButton
     ] param [[
-        CAN_VIEW_SERVER_SETTINGS, CAN_VIEW_CLIENT_SETTINGS, CAN_VIEW_MISSION_SETTINGS
+        CAN_SET_SERVER_SETTINGS, CAN_SET_CLIENT_SETTINGS, CAN_SET_MISSION_SETTINGS
     ] find true]) call FUNC(gui_sourceChanged);
 } else {
     //--- enable and show default menu

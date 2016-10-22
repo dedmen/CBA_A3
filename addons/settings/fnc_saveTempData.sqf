@@ -32,7 +32,7 @@ Author:
                 _forced = [_setting, _source] call FUNC(getForced);
             };
 
-            systemChat str ([_setting, _value, _forced, _source] call FUNC(set));
+            [_setting, _value, _forced, _source] call FUNC(set);
         };
     } forEach ["server", "client", "mission"];
 } forEach GVAR(allSettings);
