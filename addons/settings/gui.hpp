@@ -69,24 +69,24 @@ class RscDisplayGameOptions {
             h = POS_H(1);
         };
 
-        class CBA_ButtonClient: RscButtonMenu {
-            idc = IDC_BTN_CLIENT;
-            text = CSTRING(ButtonClient);
-            tooltip = CSTRING(ButtonClient_tooltip);
+        class CBA_ButtonServer: RscButtonMenu {
+            idc = IDC_BTN_SERVER;
+            text = CSTRING(ButtonServer);
+            tooltip = CSTRING(ButtonServer_tooltip);
             x = POS_X(1);
             y = POS_Y(2.1);
             w = POS_W(8);
             h = POS_H(1);
         };
 
-        class CBA_ButtonServer: CBA_ButtonClient {
-            idc = IDC_BTN_SERVER;
-            text = CSTRING(ButtonServer);
-            tooltip = CSTRING(ButtonServer_tooltip);
+        class CBA_ButtonClient: CBA_ButtonServer {
+            idc = IDC_BTN_CLIENT;
+            text = CSTRING(ButtonClient);
+            tooltip = CSTRING(ButtonClient_tooltip);
             x = POS_X(9);
         };
 
-        class CBA_ButtonMission: CBA_ButtonClient {
+        class CBA_ButtonMission: CBA_ButtonServer {
             idc = IDC_BTN_MISSION;
             text = CSTRING(ButtonMission);
             tooltip = CSTRING(ButtonMission_tooltip);

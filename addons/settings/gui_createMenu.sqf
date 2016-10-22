@@ -61,15 +61,17 @@ _display setVariable [QGVAR(controls), []];
         _ctrlSettingName ctrlCommit 0;
 
         // ----- check if setting can be altered
-        private _enabled = switch (_source) do {
-            case ("client"): {
-                CAN_SET_CLIENT_SETTINGS
+        private _enabled = false;
+
+        switch (_source) do {
+            case "server": {
+                _enabled = CAN_SET_SERVER_SETTINGS;
             };
-            case ("server"): {
-                CAN_SET_SERVER_SETTINGS
+            case "client": {
+                _enabled = CAN_SET_CLIENT_SETTINGS;
             };
-            case ("mission"): {
-                CAN_SET_MISSION_SETTINGS
+            case "mission": {
+                _enabled = CAN_SET_MISSION_SETTINGS;
             };
         };
 
@@ -104,5 +106,5 @@ _display setVariable [QGVAR(controls), []];
         };
 
         _ctrlOptionsGroup setVariable [QGVAR(offsetY), _offsetY + MENU_OFFSET_SPACING];
-    } forEach ["client", "server", "mission"];
+    } forEach ["server", "client", "mission"];
 } forEach GVAR(allSettings);
