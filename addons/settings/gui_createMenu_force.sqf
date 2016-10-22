@@ -10,7 +10,7 @@ _ctrlSettingForce ctrlSetPosition [
     POS_H(1)
 ];
 _ctrlSettingForce ctrlCommit 0;
-_ctrlSettingForce cbSetChecked ([_setting, _source] call FUNC(isForced));
+_ctrlSettingForce cbSetChecked ([_setting, _source] call FUNC(getForced));
 
 private _data = [_setting, _source];
 

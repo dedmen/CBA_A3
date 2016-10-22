@@ -38,7 +38,7 @@ if (!isNil "_value" && {!([_setting, _value] call FUNC(check))}) exitWith {
 };
 
 private _currentValue = [_setting, _source] call FUNC(get);
-private _currentForced = [_setting, _source] call FUNC(isForced);
+private _currentForced = [_setting, _source] call FUNC(getForced);
 
 if (isNil "_forced") then {
     _forced = _currentForced;
@@ -51,7 +51,7 @@ private _return = 0;
 switch (toLower _source) do {
     case ("client"): {
         // flag is used for server settings exclusively, keep previous state
-        _forced = [_setting, _source] call FUNC(isForced);
+        _forced = [_setting, _source] call FUNC(getForced);
 
         GVAR(clientSettings) setVariable [_setting, [_value, _forced]];
 

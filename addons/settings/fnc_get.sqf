@@ -39,11 +39,11 @@ private _value = switch (toLower _source) do {
     case ("forced"): {
         private _value = [_setting, "client"] call FUNC(get);
 
-        if ([_setting, "mission"] call FUNC(isForced)) then {
+        if ([_setting, "mission"] call FUNC(getForced)) then {
             _value = [_setting, "mission"] call FUNC(get);
         };
 
-        if ([_setting, "server"] call FUNC(isForced)) then {
+        if ([_setting, "server"] call FUNC(getForced)) then {
             _value = [_setting, "server"] call FUNC(get);
         };
 

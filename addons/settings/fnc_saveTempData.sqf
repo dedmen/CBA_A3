@@ -29,7 +29,7 @@ Author:
             };
 
             if (isNil "_forced") then {
-                _forced = [_setting, _source] call FUNC(isForced);
+                _forced = [_setting, _source] call FUNC(getForced);
             };
 
             [_setting, _value, _forced, _source] call FUNC(set);

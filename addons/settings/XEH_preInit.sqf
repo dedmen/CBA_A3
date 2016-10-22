@@ -67,7 +67,7 @@ if (isServer) then {
 [QGVAR(setSettingMission), {
     params ["_setting", "_value", ["_forced", false, [false]]];
 
-    if ([_setting, "mission"] call FUNC(isForced)) exitWith {
+    if ([_setting, "mission"] call FUNC(getForced)) exitWith {
         LOG_1("Setting %1 already forced, ignoring setSettingMission.",str _setting);
     };
     if (!([_setting, _value] call FUNC(check))) exitWith {
