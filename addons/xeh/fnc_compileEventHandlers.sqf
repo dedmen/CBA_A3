@@ -183,6 +183,25 @@ private _resultNames = [];
 
             // only add event on machines where it exists
             if !(_eventFunc isEqualTo _eventFuncBase) then {
+                //Optimize "QUOTE(call COMPILE_FILE(XEH_preInit));" down to just the content of the EH script
+
+                diag_log [_eventFunc, _eventFunc select [0,40], _eventFunc select [count _eventFunc -1]];
+
+                if (["compile"] call CBA_fnc_isRecompileEnabled && //Users might expect their preInit script to be reloaded everytime when debugging
+                    {
+                        (_eventFunc select [0,40]) isEqualTo "call compile preProcessFileLineNumbers '"
+                        && 
+                        {
+                                (_eventFunc select [count _eventFunc -1]) isEqualTo "'"
+                        }
+                    }
+                ) then {
+                    private _funcPath = _eventFunc select [40, count _eventFunc - 41];
+                    diag_log ["newpath", _funcPath];
+
+                    _eventFunc = preprocessFileLineNumbers _funcPath;
+                };
+
                 _eventFunc = compile _eventFunc;
                 TRACE_3("does something",_customName,_className,_eventName);
             } else {
